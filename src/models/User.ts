@@ -19,15 +19,4 @@ export class User extends Model<UserProps> {
       new ApiSync<UserProps>(rootUrl)
     )
   }
-
-  // Move attibutes to the class Model
-  // public events: Eventing = new Eventing()
-  // public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl)
-  // public attributes: Attributes<UserProps>
-  // constructor(attrs: UserProps) {
-  //   this.attributes = new Attributes<UserProps>(attrs)
-  // }
-  // on(eventName: string, callback: Callback): void {
-  //   this.events.on(eventName, callback)
-  // }
 }
