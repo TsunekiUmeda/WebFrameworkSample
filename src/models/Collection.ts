@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 import { Eventing } from './Eventing'
 
 export class Collection<T, K> {
-  modules: T[] = []
+  models: T[] = []
   events: Eventing = new Eventing()
   constructor(public rootUrl: string, public deserialize: (json: K) => T) {}
 
@@ -17,7 +17,7 @@ export class Collection<T, K> {
   fetch(): void {
     axios.get(this.rootUrl).then((response: AxiosResponse) => {
       response.data.forEach((value: K) => {
-        this.modules.push(this.deserialize(value))
+        this.models.push(this.deserialize(value))
       })
       this.trigger('change')
     })
